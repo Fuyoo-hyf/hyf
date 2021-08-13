@@ -2,14 +2,17 @@
   <div class="win">
     <!-- 第一人称操作 -->
     <div class="plantplom flex">
-      <div class="flex_a"></div>
+      <div class="flex_a">
+        <div class="card fl"></div>
+        <div class="card fl"></div>
+      </div>
       <div class="card flexone">
-      <img src="./assets/demopeo.png" alt="">
+        <img src="./assets/demopeo.png" alt="" />
+      </div>
     </div>
-    </div>
-    
+
     <div class="card p2">
-      <img src="./assets/demopeo.png" alt="">
+      <img src="./assets/demopeo.png" alt="" />
     </div>
   </div>
 </template>
@@ -113,7 +116,7 @@ export default {
   height: 100vh;
 }
 
-.plantplom{
+.plantplom {
   position: fixed;
   width: 100%;
   height: 150px;
@@ -122,26 +125,30 @@ export default {
   box-sizing: border-box;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.flex_a{
+.fl {
+  float: left;
+}
+
+.flex_a {
   flex: 10;
 }
 
-.flexone{
+.flexone {
   flex: 1;
 }
 
-.card{
+.card {
   width: 9vw;
   height: 150px;
   border: 1px solid black;
   box-sizing: border-box;
 }
 
-.p1{
+.p1 {
   position: fixed;
   /* left: 0; */
   right: 0;
@@ -149,7 +156,7 @@ export default {
   /* margin: auto; */
 }
 
-.p2{
+.p2 {
   position: fixed;
   left: 0;
   right: 0;
@@ -157,7 +164,7 @@ export default {
   margin: auto;
 }
 
-img{
+img {
   width: 100%;
   height: 100%;
 }
