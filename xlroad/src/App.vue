@@ -25,6 +25,10 @@ export default {
       peoples: [],
       itemcards: [],
       sccards: [],
+      p1: {
+        nm:""
+      },
+      p2:{}
     };
   },
   created() {
@@ -33,8 +37,8 @@ export default {
   methods: {
     ingame() {
       let that = this;
-      var p1 = new this.cre_player("p1");
-      var p2 = new this.cre_player("p2");
+      this.p1 = new this.cre_player("p1");
+      this.p2 = new this.cre_player("p2");
       // this.peoples.push(p1)
       // this.peoples.push(p2)
 
