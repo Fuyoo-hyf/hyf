@@ -1,10 +1,18 @@
 <template>
   <div class="win">
+    <!-- 桌面 -->
+    <div class="game_table">
+      <div></div>
+      <div></div>
+    </div>
+
     <!-- 第一人称操作 -->
     <div class="plantplom flex">
       <div class="flex_a">
-        <div class="card fl"></div>
-        <div class="card fl"></div>
+        <div v-for="item in p1.itemcard" :key="item.index" class="card fl">
+          {{item}}
+        </div>
+        <!-- <div class="card fl"></div> -->
       </div>
       <div class="card flexone">
         <img src="./assets/demopeo.png" alt="" />
@@ -29,7 +37,9 @@ export default {
       itemcards: [],
       sccards: [],
       p1: {
-        nm:""
+        nm:"",
+        itemcard:[],
+        sccard:[]
       },
       p2:{}
     };
@@ -46,14 +56,14 @@ export default {
       // this.peoples.push(p2)
 
       // start
-      p1.y = 2;
-      p2.y = 1;
-      p2.g = 1;
+      this.p1.y = 2;
+      this.p2.y = 1;
+      this.p2.g = 1;
 
-      p1.itemcard.push(new this.cre_itemcard(1, 2));
-      p1.itemcard.push(new this.cre_itemcard(2, { y: 2 }));
-      p2.itemcard.push(new this.cre_itemcard(1, 2));
-      p2.itemcard.push(new this.cre_itemcard(2, { y: 2 }));
+      this.p1.itemcard.push(new this.cre_itemcard(1, 2));
+      this.p1.itemcard.push(new this.cre_itemcard(2, { y: 2 }));
+      this.p2.itemcard.push(new this.cre_itemcard(1, 2));
+      this.p2.itemcard.push(new this.cre_itemcard(2, { y: 2 }));
 
       for (var i = 0; i < 5; i++) {
         this.itemcards.push(new this.cre_itemcard());
@@ -116,10 +126,22 @@ export default {
   height: 100vh;
 }
 
+.game_table{
+  position: fixed;
+  width: 80%;
+  height: 60vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 2px solid black;
+}
+
 .plantplom {
   position: fixed;
   width: 100%;
-  height: 150px;
+  height: 120px;
   bottom: 0;
   border: 1px solid black;
   box-sizing: border-box;
@@ -134,7 +156,7 @@ export default {
 }
 
 .flex_a {
-  flex: 10;
+  flex: 12;
 }
 
 .flexone {
@@ -142,8 +164,8 @@ export default {
 }
 
 .card {
-  width: 9vw;
-  height: 150px;
+  width: 7vw;
+  height: 120px;
   border: 1px solid black;
   box-sizing: border-box;
 }
