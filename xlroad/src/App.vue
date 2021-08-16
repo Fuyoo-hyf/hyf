@@ -2,15 +2,23 @@
   <div class="win">
     <!-- 桌面 -->
     <div class="game_table">
-      <div></div>
-      <div></div>
+      <div class="card_h">
+        <div class="card fl" v-for="item in itemcards" :key="item.index">
+          {{ item }}
+        </div>
+      </div>
+      <div class="card_h">
+        <div class="card fl" v-for="item in sccards" :key="item.index">
+          {{ item }}
+        </div>
+      </div>
     </div>
 
     <!-- 第一人称操作 -->
     <div class="plantplom flex">
       <div class="flex_a">
         <div v-for="item in p1.itemcard" :key="item.index" class="card fl">
-          {{item}}
+          {{ item }}
         </div>
         <!-- <div class="card fl"></div> -->
       </div>
@@ -37,11 +45,11 @@ export default {
       itemcards: [],
       sccards: [],
       p1: {
-        nm:"",
-        itemcard:[],
-        sccard:[]
+        nm: "",
+        itemcard: [],
+        sccard: [],
       },
-      p2:{}
+      p2: {},
     };
   },
   created() {
@@ -126,7 +134,7 @@ export default {
   height: 100vh;
 }
 
-.game_table{
+.game_table {
   position: fixed;
   width: 80%;
   height: 60vh;
@@ -145,6 +153,10 @@ export default {
   bottom: 0;
   border: 1px solid black;
   box-sizing: border-box;
+}
+
+.card_h {
+  height: 120px;
 }
 
 .flex {
