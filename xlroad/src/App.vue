@@ -4,7 +4,7 @@
     <div class="game_table">
       <div class="card_h">
         <div class="card fl" v-for="item in itemcards" :key="item.index">
-          {{ item }}
+          <my-card :cardobj="item"></my-card>
         </div>
       </div>
       <div class="card_h">
@@ -35,10 +35,13 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import myCard from "./components/card.vue";
 
 export default {
   name: "App",
-  components: {},
+  components: {
+    myCard,
+  },
   data() {
     return {
       peoples: [],
@@ -93,22 +96,22 @@ export default {
       this.sc = 0;
     },
 
-    cre_itemcard(type, ins, out) {
-      // type:1 升级卡
-      if (type) {
-        this.type = type;
+    cre_itemcard(types, ins, out) {
+      // types:1 升级卡
+      if (types) {
+        this.types = types;
         this.ins = ins;
         this.out = out;
       } else {
         if (parseInt(Math.random() * 4)) {
-          this.type = 2;
+          this.types = 2;
           let suiji = () => parseInt(Math.random() * 4);
           ins = { y: suiji(), g: suiji(), r: suiji(), b: suiji() };
           out = { y: suiji(), g: suiji(), r: suiji(), b: suiji() };
           this.ins = ins;
           this.out = out;
         } else {
-          this.type = 1;
+          this.types = 1;
           this.ins = parseInt(Math.random() * 2 + 2);
         }
       }
