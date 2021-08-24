@@ -60,12 +60,19 @@ export default {
   },
   methods: {
     ingame() {
-      let that = this;
+      // var that = this;
       this.p1 = new this.cre_player("p1");
       this.p2 = new this.cre_player("p2");
       // this.peoples.push(p1)
       // this.peoples.push(p2)
+      this.readyplay()
+      console.log(this.itemcards, "itemcards");
+      console.log(this.sccards, "sccards");
+    },
 
+    // 开始内容准备
+    readyplay(){
+      let that = this
       // start
       this.p1.y = 2;
       this.p2.y = 1;
@@ -82,9 +89,6 @@ export default {
           card: new that.cre_sccard(),
         });
       }
-
-      console.log(this.itemcards, "itemcards");
-      console.log(this.sccards, "sccards");
     },
 
     cre_player(nm) {
