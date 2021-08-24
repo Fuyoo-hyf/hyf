@@ -18,7 +18,7 @@
     <div class="plantplom flex">
       <div class="flex_a">
         <div v-for="item in p1.itemcard" :key="item.index" class="card fl">
-          {{ item }}
+          <my-card :cardobj="item"></my-card>
         </div>
         <!-- <div class="card fl"></div> -->
       </div>
@@ -83,9 +83,10 @@ export default {
         });
       }
 
-      console.log(this.itemcards);
-      console.log(this.sccards);
+      console.log(this.itemcards, "itemcards");
+      console.log(this.sccards, "sccards");
     },
+
     cre_player(nm) {
       this.nm = nm;
       this.y = 0;
@@ -96,16 +97,18 @@ export default {
       this.sc = 0;
     },
 
-    cre_itemcard(types, ins, out) {
+    cre_itemcard(types, ins, out = {}) {
       // types:1 升级卡
+      // 可指定生成卡片参数为空时随机生成道具卡
       if (types) {
         this.types = types;
         this.ins = ins;
         this.out = out;
       } else {
+        // 随机生成交易卡或升级卡
         if (parseInt(Math.random() * 4)) {
           this.types = 2;
-          let suiji = () => parseInt(Math.random() * 4);
+          let suiji = () => parseInt(Math.random() * 2);
           ins = { y: suiji(), g: suiji(), r: suiji(), b: suiji() };
           out = { y: suiji(), g: suiji(), r: suiji(), b: suiji() };
           this.ins = ins;

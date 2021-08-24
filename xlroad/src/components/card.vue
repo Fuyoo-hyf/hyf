@@ -1,17 +1,26 @@
 <template>
-  <div class="card">
-    <div class="card_li">
-      <div class="li_xl bg_y"></div>
-      <div class="li_xl bg_g"></div>
-      <div class="li_xl bg_r"></div>
-      <div class="li_xl bg_b"></div>
+  <div>
+    <div v-if="cardobj.types == 1" class="card">
+      <div>升级</div>
+      <div class="card_li">
+        <div v-for="item in cardobj.ins" :key="item.index" class="li_xl bg_sj"></div>
+      </div>
     </div>
-    <div class="card_li">=></div>
-    <div class="card_li">
-      <div class="li_xl bg_y"></div>
-      <div class="li_xl bg_g"></div>
-      <div class="li_xl bg_r"></div>
-      <div class="li_xl bg_b"></div>
+
+    <div v-if="cardobj.types == 2" class="card">
+      <div class="card_li">
+        <div v-for="item in cardobj.out.y" :key="item.index" class="li_xl bg_y"></div>
+        <div v-for="item in cardobj.out.g" :key="item.index" class="li_xl bg_g"></div>
+        <div v-for="item in cardobj.out.r" :key="item.index" class="li_xl bg_r"></div>
+        <div v-for="item in cardobj.out.b" :key="item.index" class="li_xl bg_b"></div>
+      </div>
+      <div class="card_li">=></div>
+      <div class="card_li">
+        <div v-for="item in cardobj.ins.y" :key="item.index" class="li_xl bg_y"></div>
+        <div v-for="item in cardobj.ins.g" :key="item.index" class="li_xl bg_g"></div>
+        <div v-for="item in cardobj.ins.r" :key="item.index" class="li_xl bg_r"></div>
+        <div v-for="item in cardobj.ins.b" :key="item.index" class="li_xl bg_b"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -21,8 +30,8 @@ export default {
   props: {
     cardobj: {
       types: "",
-      ins: "",
-      out: "",
+      ins: {},
+      out: {},
     },
   },
 
@@ -69,5 +78,8 @@ a {
 }
 .bg_b {
   background-color: black;
+}
+.bg_sj{
+  background-color: cadetblue;
 }
 </style>
