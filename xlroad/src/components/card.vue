@@ -51,8 +51,9 @@ a {
   color: #42b983;
 }
 .card {
-  width: 7vw;
-  height: 120px;
+  /* width: 7vw; */
+  width: 7.7rem;
+  height: 18vh;
   display: flex;
   justify-content: space-around;
   border: 1px solid black;

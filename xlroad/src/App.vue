@@ -3,12 +3,12 @@
     <!-- 桌面 -->
     <div class="game_table">
       <div class="card_h">
-        <div class="card fl" v-for="item in itemcards" :key="item.index">
+        <div class="fl" @click="getitem(item,index)" v-for="(item,index) in itemcards" :key="index">
           <my-card :cardobj="item"></my-card>
         </div>
       </div>
       <div class="card_h">
-        <div class="card fl" v-for="item in sccards" :key="item.index">
+        <div class="card fl" v-for="(item,index) in sccards" :key="index">
           {{ item }}
         </div>
       </div>
@@ -17,7 +17,7 @@
     <!-- 第一人称操作 -->
     <div class="plantplom flex">
       <div class="flex_a">
-        <div v-for="item in p1.itemcard" :key="item.index" class="card fl">
+        <div v-for="item in p1.itemcard" :key="item.index" class="fl">
           <my-card :cardobj="item"></my-card>
         </div>
         <!-- <div class="card fl"></div> -->
@@ -47,6 +47,7 @@ export default {
       peoples: [],
       itemcards: [],
       sccards: [],
+      nowpeo: 'p1',
       p1: {
         nm: "",
         itemcard: [],
@@ -134,6 +135,14 @@ export default {
       this.ins = ins;
       this.out = out;
     },
+
+    // 点击获取道具卡
+    getitem(item,index){
+      this[this.nowpeo].itemcard.push(item)
+      console.log(index,'索引')
+      this.itemcards.splice(index,1)
+      this.itemcards.push(new this.cre_itemcard())
+    }
   },
 };
 </script>
@@ -159,14 +168,14 @@ export default {
 .plantplom {
   position: fixed;
   width: 100%;
-  height: 120px;
+  height: 18vh;
   bottom: 0;
   border: 1px solid black;
   box-sizing: border-box;
 }
 
 .card_h {
-  height: 120px;
+  height: 18vh;
 }
 
 .flex {
@@ -186,8 +195,8 @@ export default {
 }
 
 .card {
-  width: 7vw;
-  height: 120px;
+  width: 7.7rem;
+  height: 18vh;
   border: 1px solid black;
   box-sizing: border-box;
 }
