@@ -9,7 +9,7 @@
       </div>
       <div class="card_h">
         <div class="card fl" v-for="(item,index) in sccards" :key="index">
-          {{ item }}
+          <my-card :cardobj="item"></my-card>
         </div>
       </div>
     </div>
@@ -86,9 +86,7 @@ export default {
 
       for (var i = 0; i < 5; i++) {
         this.itemcards.push(new this.cre_itemcard());
-        this.sccards.push({
-          card: new that.cre_sccard(),
-        });
+        this.sccards.push(new that.cre_sccard());
       }
     },
 
@@ -125,6 +123,7 @@ export default {
       }
     },
 
+    // 创建积分卡
     cre_sccard() {
       var ins = parseInt(Math.random() * 21 + 10);
       var out = {};
@@ -134,6 +133,7 @@ export default {
       out.b = parseInt(Math.random() * 4);
       this.ins = ins;
       this.out = out;
+      this.types = 'sc'
     },
 
     // 点击获取道具卡

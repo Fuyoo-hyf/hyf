@@ -22,6 +22,14 @@
         <div v-for="item in cardobj.ins.b" :key="item.index" class="li_xl bg_b"></div>
       </div>
     </div>
+
+    <div v-if="cardobj.types == 'sc'" class="sccard">
+      <div>积分：{{cardobj.ins}}</div>
+      <div>黄：{{cardobj.out.y}}</div>
+      <div>绿：{{cardobj.out.g}}</div>
+      <div>红：{{cardobj.out.r}}</div>
+      <div>黑：{{cardobj.out.b}}</div>
+    </div>
   </div>
 </template>
 
@@ -58,6 +66,13 @@ a {
   justify-content: space-around;
   border: 1px solid black;
   box-sizing: border-box;
+}
+.sccard {
+  width: 7.7rem;
+  height: 18vh;
+  border: 1px solid black;
+  box-sizing: border-box;
+  line-height: 20px;
 }
 .card_li {
   height: 100px;
