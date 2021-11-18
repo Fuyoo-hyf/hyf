@@ -3,12 +3,17 @@
     <!-- 桌面 -->
     <div class="game_table">
       <div class="card_h">
-        <div class="fl" @click="getitem(item,index)" v-for="(item,index) in itemcards" :key="index">
+        <div
+          class="fl"
+          @click="getitem(item, index)"
+          v-for="(item, index) in itemcards"
+          :key="index"
+        >
           <my-card :cardobj="item"></my-card>
         </div>
       </div>
       <div class="card_h">
-        <div class="card fl" v-for="(item,index) in sccards" :key="index">
+        <div class="card fl" v-for="(item, index) in sccards" :key="index">
           <my-card :cardobj="item"></my-card>
         </div>
       </div>
@@ -47,7 +52,7 @@ export default {
       peoples: [],
       itemcards: [],
       sccards: [],
-      nowpeo: 'p1',
+      nowpeo: "p1",
       p1: {
         nm: "",
         itemcard: [],
@@ -66,14 +71,14 @@ export default {
       this.p2 = new this.cre_player("p2");
       // this.peoples.push(p1)
       // this.peoples.push(p2)
-      this.readyplay()
+      this.readyplay();
       console.log(this.itemcards, "itemcards");
       console.log(this.sccards, "sccards");
     },
 
     // 开始内容准备
-    readyplay(){
-      let that = this
+    readyplay() {
+      let that = this;
       // start
       this.p1.y = 2;
       this.p2.y = 1;
@@ -133,16 +138,16 @@ export default {
       out.b = parseInt(Math.random() * 4);
       this.ins = ins;
       this.out = out;
-      this.types = 'sc'
+      this.types = "sc";
     },
 
     // 点击获取道具卡
-    getitem(item,index){
-      this[this.nowpeo].itemcard.push(item)
-      console.log(index,'索引')
-      this.itemcards.splice(index,1)
-      this.itemcards.push(new this.cre_itemcard())
-    }
+    getitem(item, index) {
+      this[this.nowpeo].itemcard.push(item);
+      console.log(index, "索引");
+      this.itemcards.splice(index, 1);
+      this.itemcards.push(new this.cre_itemcard());
+    },
   },
 };
 </script>
